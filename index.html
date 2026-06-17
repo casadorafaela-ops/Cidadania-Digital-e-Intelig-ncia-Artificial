@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidadania Digital & IA</title>
+    <!-- Fonte Arredondada Poppins -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Menu Superior Tecnológico -->
+    <header class="navbar">
+        <div class="logo">Consciência<span>Digital</span></div>
+        <nav>
+            <button class="nav-btn active" data-target="home">Início</button>
+            <button class="nav-btn" data-target="artigos">Ciência e Inovação</button>
+            <button class="nav-btn" data-target="ia-curiosidades">IA Curiosidades</button>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal Dinâmico -->
+    <main class="main-content">
+
+        <!-- ABA 1: HOME -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <h1>Cidadania Digital e Inteligência Artificial</h1>
+                <p>O Impacto das Deepfakes e da Desinformação na Sociedade</p>
+            </div>
+            
+            <div class="grid-container">
+                <div class="card grid-large">
+                    <h2>O Desafio das Deepfakes</h2>
+                    <p>As deepfakes utilizam redes neurais artificiais para sobrepor rostos e vozes, criando vídeos e áudios falsos extremamente realistas. No contexto da cidadania digital, isso representa um risco severo à verdade e à segurança das informações.</p>
+                    <div class="video-container">
+                        <iframe src="https://youtube.com" title="Exemplo Deepfake" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Desinformação Automatizada</h2>
+                    <p>Robôs e algoritmos de IA conseguem espalhar notícias falsas em escala massiva, moldando a opinião pública antes que os fatos reais sejam checados.</p>
+                    <img src="https://unsplash.com" alt="Tecnologia Abstrata" class="card-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- ABA 2: ARTIGOS CIENTÍFICOS -->
+        <section id="artigos" class="page-section">
+            <h2>Ciência, Inovação e Combate</h2>
+            <p class="subtitle">O que a ciência diz sobre as novas tecnologias de detecção.</p>
+
+            <div class="grid-container">
+                <div class="card">
+                    <span class="tag">Artigo Científico</span>
+                    <h3>Detecção de Mídias Sintéticas via Fluxo Sanguíneo</h3>
+                    <p class="abstract">"Inovações recentes focam na análise de biossinais faciais. Algoritmos de IA de última geração conseguem detectar flutuações imperceptíveis no fluxo sanguíneo da pele (fotopletismografia) em vídeos, diferenciando humanos reais de deepfakes com até 94% de precisão."</p>
+                    <a href="https://ieee.org" target="_blank" class="source-link">Fonte: IEEE Xplore (Adaptado)</a>
+                </div>
+
+                <div class="card">
+                    <span class="tag">Inovação</span>
+                    <h3>Criptografia e Blockchain contra Fake News</h3>
+                    <p class="abstract">"Consórcios de mídia estão testando o uso de marcas d'água criptográficas e registros em Blockchain desde o momento da captura da imagem pela câmera. Isso garante a procedência e a integridade do arquivo, impedindo edições maliciosas por IA."</p>
+                    <a href="https://nature.com" target="_blank" class="source-link">Fonte: Nature Electronics (Adaptado)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABA 3: IA CURIOSIDADES -->
+        <section id="ia-curiosidades" class="page-section">
+            <h2>Espaço da Inteligência Artificial</h2>
+            <p class="subtitle">Interaja com a nossa IA local para descobrir curiosidades surpreendentes sobre inovação.</p>
+
+            <div class="ai-box">
+                <div class="ai-header">
+                    <div class="ai-status"></div>
+                    <span>CyberBot v2.6 - Assistente de Inovação</span>
+                </div>
+                <div class="ai-body">
+                    <p id="ai-response">Clique no botão abaixo para gerar uma curiosidade tecnológica exclusiva baseada em dados científicos atuais!</p>
+                </div>
+                <button id="btn-generate-curiosity" class="action-btn">Gerar Nova Curiosidade</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 - Projeto de Educação Digital e IA. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
