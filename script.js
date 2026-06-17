@@ -1,46 +1,73 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Alternador de Abas Dinâmico (Simula a abertura de novas páginas)
-    const buttons = document.querySelectorAll('.nav-btn');
-    const sections = document.querySelectorAll('.page-section');
+    // ==========================================
+    // 1. GESTÃO DE NAVEGAÇÃO DE PÁGINAS (SPA)
+    // ==========================================
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const pageSections = document.querySelectorAll('.page-section');
 
-    buttons.forEach(button => {
+    navButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove as classes ativas antigas
-            buttons.forEach(btn => btn.classList.remove('active'));
-            sections.forEach(sec => sec.classList.remove('active'));
+            // Remove estados ativos
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            pageSections.forEach(sec => sec.classList.remove('active'));
 
-            // Ativa o botão clicado
+            // Aplica estado ativo ao gatilho atual
             button.classList.add('active');
             
-            // Exibe a seção correspondente
-            const targetId = button.getAttribute('data-target');
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.classList.add('active');
+            // Ativa a aba alvo
+            const target = button.getAttribute('data-target');
+            const activeSection = document.getElementById(target);
+            if (activeSection) {
+                activeSection.classList.add('active');
             }
         });
     });
 
-    // 2. Banco de Dados Local da IA de Curiosidades
-    const curiosidades = [
-        "A IA atual já consegue descobrir novos materiais em laboratório 10 vezes mais rápido que os métodos humanos tradicionais.",
-        "Cientistas criaram uma IA capaz de traduzir textos em línguas antigas e mortas (como o acádio) que poucos humanos conseguem ler.",
-        "Sabia que algoritmos generativos conseguem criar designs de peças aeroespaciais mais leves e resistentes imitando estruturas biológicas de ossos?",
-        "Modelos avançados de IA médica conseguem prever a estrutura tridimensional de proteínas em minutos, um problema que a biologia tentava resolver há 50 anos.",
-        "Algumas IAs de detecção de deepfake analisam os micro-movimentos dos olhos e padrões de piscada, locais onde as manipulações de vídeo costumam falhar."
+    // ==========================================
+    // 2. MOTOR DA INTELIGÊNCIA ARTIFICIAL (TERMINAL)
+    // ==========================================
+    const baseCuriosidades = [
+        "ANÁLISE_COMPLETA: A IA FakeCatcher desenvolvida pela Intel analisa o fluxo sanguíneo facial pixel por pixel e já possui taxa de precisão de 96% contra mídias manipuladas.",
+        "SISTEMA_DADO: Consórcios globais de jornalismo usam criptografia em Blockchain nas lentes de câmeras comerciais para blindar a autoria de imagens contra adulteração generativa.",
+        "MÉTRICA_IA: Algoritmos de Deepfakes modernos não falham mais apenas nos olhos; a nova fronteira de detecção analisa os movimentos involuntários dos músculos do pescoço e respiração.",
+        "INFORMAÇÃO_REDES: A automação de notícias falsas por redes adversárias generativas (GANs) consegue criar perfis de comportamento psicométrico para enganar humanos em menos de 3 segundos.",
+        "INOVAÇÃO_CONSCIÊNCIA: Softwares de marca d'água invisível injetam ruídos matemáticos em áudios oficiais. Humanos não escutam, mas as ferramentas de segurança identificam de imediato."
     ];
 
-    const aiButton = document.getElementById('btn-generate-curiosity');
-    const aiResponse = document.getElementById('ai-response');
+    const aiButton = document.getElementById('trigger-ai-btn');
+    const aiOutput = document.getElementById('ai-output-text');
+    let isProcessing = false;
 
-    // Manipulação funcional do DOM com feedback visual de processamento
     aiButton.addEventListener('click', () => {
-        aiResponse.innerText = "Processando dados do banco de inovações...";
+        if (isProcessing) return; // Evita cliques simultâneos
         
+        isProcessing = true;
+        aiOutput.innerHTML = "<span style='color: #3a86ff;'>[ACESSANDO_BANCO_DE_DADOS...]</span> Conectando ao núcleo de inovação da IA...";
+
         setTimeout(() => {
-            const randomIndex = Math.floor(Math.random() * curiosidades.length);
-            aiResponse.innerText = curiosidades[randomIndex];
-        }, 600);
+            // Seleção algorítmica aleatória
+            const indexAleatorio = Math.floor(Math.random() * baseCuriosidades.length);
+            const textoFinal = baseCuriosidades[indexAleatorio];
+            
+            // Executa efeito de digitação real caractere por caractere
+            animarDigitacao(aiOutput, textoFinal);
+        }, 800);
     });
+
+    // Função de animação de digitação por varredura
+    function animarDigitacao(elemento, texto) {
+        elemento.innerHTML = "";
+        let i = 0;
+        
+        const intervalo = setInterval(() => {
+            if (i < texto.length) {
+                elemento.innerHTML += texto.charAt(i);
+                i++;
+            } else {
+                clearInterval(intervalo);
+                isProcessing = false; // Libera o terminal para novas consultas
+            }
+        }, 15); // Velocidade de renderização cibernética
+    }
 });
