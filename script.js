@@ -1,64 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. TROCA DE ABAS COM TRANSIÇÃO INTELIGENTE
-    const tabs = document.querySelectorAll('.nav-btn');
-    const sections = document.querySelectorAll('.page-section');
+    // 1. CONTROLADOR DE TRANSICÃO DE MÓDULOS (SPA PREMIUM)
+    const matrixButtons = document.querySelectorAll('.matrix-btn');
+    const matrixSections = document.querySelectorAll('.matrix-section');
 
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
-            sections.forEach(s => s.classList.remove('active'));
+    matrixButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Elimina estados ativos obsoletos
+            matrixButtons.forEach(b => b.classList.remove('active'));
+            matrixSections.forEach(s => s.classList.remove('active'));
 
-            tab.classList.add('active');
+            // Insere estado ativo no botão acionado
+            btn.classList.add('active');
             
-            const targetSection = document.getElementById(tab.getAttribute('data-target'));
+            // Renderiza o painel correspondente
+            const targetModule = btn.getAttribute('data-target');
+            const targetSection = document.getElementById(targetModule);
             if (targetSection) {
                 targetSection.classList.add('active');
             }
         });
     });
 
-    // 2. CHATBOT INTERATIVO - CURIOSIDADES COM ANIMAÇÃO DE FLUXO
-    const bancoCuriosidades = [
-        "A tecnologia FakeCatcher já consegue escanear batimentos cardíacos falsos no rosto de vídeos clonados por IA com 96% de eficácia.",
-        "Mídias e portais de notícias jovens pelo mundo já testam assinar fotos originais usando Blockchain para que ninguém consiga alterá-las de zoeira.",
-        "As marcas d'água invisíveis em áudios mudam pequenos códigos matemáticos na onda sonora que o ouvido humano nem nota, mas os softwares pegam na hora.",
-        "IAs generativas de Deepfake costumam vacilar muito nos movimentos involuntários, como piscar os olhos ou na sincronia perfeita dos dentes e língua.",
-        "Muitas ferramentas de segurança agora usam 'IAs contra IAs' para prever como um golpe digital vai se espalhar nas redes sociais antes mesmo dele viralizar."
+    // 2. SISTEMA DE PROCESSAMENTO INTELECTUAL DA IA
+    const datasetCuriosidades = [
+        "MÉTRICA_CORE: O algoritmo de contra-inteligência FakeCatcher isola flutuações cromáticas causadas pela pulsação sanguínea no rosto humano e bloqueia deepfakes com 96% de exatidão factual.",
+        "MÉTRICA_CORE: Arquiteturas descentralizadas de Blockchain aplicadas diretamente no firmware do sensor óptico geram assinaturas criptográficas nativas imutáveis contra edições generativas.",
+        "MÉTRICA_CORE: Pesquisas do ecossistema IEEE provam que softwares de áudio sintético falham ao simular a ressonância harmônica da caixa torácica e respiração humana em ligações clonadas.",
+        "MÉTRICA_CORE: Marcas d'água invisíveis de nível industrial adicionam ruídos de varredura matemática nas bordas das imagens. O olho humano não vê, mas sistemas de segurança barram imediatamente.",
+        "MÉTRICA_CORE: Modelos adversários avançados (GANs) agora monitoram não apenas os olhos, mas o padrão biométrico de deglutição do pescoço, o novo calcanhar de aquiles dos clonadores de vídeo."
     ];
 
-    const chatButton = document.getElementById('btn-chat-trigger');
-    const chatBubbleText = document.getElementById('ai-response-text');
-    let dynamicTyping = false;
+    const triggerBtn = document.getElementById('supremo-trigger-btn');
+    const responseBox = document.getElementById('supremo-response-box');
+    let processLock = false;
 
-    chatButton.addEventListener('click', () => {
-        if (dynamicTyping) return;
+    triggerBtn.addEventListener('click', () => {
+        if (processLock) return;
         
-        dynamicTyping = true;
-        chatBubbleText.style.opacity = 0.5;
-        chatBubbleText.innerText = "Pensando e gerando resposta...";
+        processLock = true;
+        responseBox.innerHTML = "<span style='color: #00f0ff;'>[STREAMS_FETCHING...]</span> Interrogando rede de conhecimento analítico...";
 
         setTimeout(() => {
-            const randomPick = Math.floor(Math.random() * bancoCuriosidades.length);
-            const rawMessage = bancoCuriosidades[randomPick];
+            const randomID = Math.floor(Math.random() * datasetCuriosidades.length);
+            const targetPayload = datasetCuriosidades[randomID];
             
-            chatBubbleText.style.opacity = 1;
-            typeWriterEffect(chatBubbleText, rawMessage);
-        }, 600);
+            // Dispara efeito de varredura caractere por caractere
+            renderSupremoText(responseBox, targetPayload);
+        }, 700);
     });
 
-    function typeWriterEffect(element, text) {
-        element.innerHTML = "";
-        let index = 0;
+    function renderSupremoText(targetElement, outputText) {
+        targetElement.innerHTML = "";
+        let charIndex = 0;
         
-        const textTimer = setInterval(() => {
-            if (index < text.length) {
-                element.innerHTML += text.charAt(index);
-                index++;
+        const typingEngine = setInterval(() => {
+            if (charIndex < outputText.length) {
+                targetElement.innerHTML += outputText.charAt(charIndex);
+                charIndex++;
             } else {
-                clearInterval(textTimer);
-                dynamicTyping = false;
+                clearInterval(typingEngine);
+                processLock = false; // Libera barramento de processos
             }
-        }, 12); // Velocidade jovem e dinâmica de leitura
+        }, 10); // Varredura de dados ultra-rápida
     }
 });
