@@ -1,73 +1,64 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ==========================================
-    // 1. GESTÃO DE NAVEGAÇÃO DE PÁGINAS (SPA)
-    // ==========================================
-    const navButtons = document.querySelectorAll('.nav-btn');
-    const pageSections = document.querySelectorAll('.page-section');
+    // 1. TROCA DE ABAS COM TRANSIÇÃO INTELIGENTE
+    const tabs = document.querySelectorAll('.nav-btn');
+    const sections = document.querySelectorAll('.page-section');
 
-    navButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove estados ativos
-            navButtons.forEach(btn => btn.classList.remove('active'));
-            pageSections.forEach(sec => sec.classList.remove('active'));
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
 
-            // Aplica estado ativo ao gatilho atual
-            button.classList.add('active');
+            tab.classList.add('active');
             
-            // Ativa a aba alvo
-            const target = button.getAttribute('data-target');
-            const activeSection = document.getElementById(target);
-            if (activeSection) {
-                activeSection.classList.add('active');
+            const targetSection = document.getElementById(tab.getAttribute('data-target'));
+            if (targetSection) {
+                targetSection.classList.add('active');
             }
         });
     });
 
-    // ==========================================
-    // 2. MOTOR DA INTELIGÊNCIA ARTIFICIAL (TERMINAL)
-    // ==========================================
-    const baseCuriosidades = [
-        "ANÁLISE_COMPLETA: A IA FakeCatcher desenvolvida pela Intel analisa o fluxo sanguíneo facial pixel por pixel e já possui taxa de precisão de 96% contra mídias manipuladas.",
-        "SISTEMA_DADO: Consórcios globais de jornalismo usam criptografia em Blockchain nas lentes de câmeras comerciais para blindar a autoria de imagens contra adulteração generativa.",
-        "MÉTRICA_IA: Algoritmos de Deepfakes modernos não falham mais apenas nos olhos; a nova fronteira de detecção analisa os movimentos involuntários dos músculos do pescoço e respiração.",
-        "INFORMAÇÃO_REDES: A automação de notícias falsas por redes adversárias generativas (GANs) consegue criar perfis de comportamento psicométrico para enganar humanos em menos de 3 segundos.",
-        "INOVAÇÃO_CONSCIÊNCIA: Softwares de marca d'água invisível injetam ruídos matemáticos em áudios oficiais. Humanos não escutam, mas as ferramentas de segurança identificam de imediato."
+    // 2. CHATBOT INTERATIVO - CURIOSIDADES COM ANIMAÇÃO DE FLUXO
+    const bancoCuriosidades = [
+        "A tecnologia FakeCatcher já consegue escanear batimentos cardíacos falsos no rosto de vídeos clonados por IA com 96% de eficácia.",
+        "Mídias e portais de notícias jovens pelo mundo já testam assinar fotos originais usando Blockchain para que ninguém consiga alterá-las de zoeira.",
+        "As marcas d'água invisíveis em áudios mudam pequenos códigos matemáticos na onda sonora que o ouvido humano nem nota, mas os softwares pegam na hora.",
+        "IAs generativas de Deepfake costumam vacilar muito nos movimentos involuntários, como piscar os olhos ou na sincronia perfeita dos dentes e língua.",
+        "Muitas ferramentas de segurança agora usam 'IAs contra IAs' para prever como um golpe digital vai se espalhar nas redes sociais antes mesmo dele viralizar."
     ];
 
-    const aiButton = document.getElementById('trigger-ai-btn');
-    const aiOutput = document.getElementById('ai-output-text');
-    let isProcessing = false;
+    const chatButton = document.getElementById('btn-chat-trigger');
+    const chatBubbleText = document.getElementById('ai-response-text');
+    let dynamicTyping = false;
 
-    aiButton.addEventListener('click', () => {
-        if (isProcessing) return; // Evita cliques simultâneos
+    chatButton.addEventListener('click', () => {
+        if (dynamicTyping) return;
         
-        isProcessing = true;
-        aiOutput.innerHTML = "<span style='color: #3a86ff;'>[ACESSANDO_BANCO_DE_DADOS...]</span> Conectando ao núcleo de inovação da IA...";
+        dynamicTyping = true;
+        chatBubbleText.style.opacity = 0.5;
+        chatBubbleText.innerText = "Pensando e gerando resposta...";
 
         setTimeout(() => {
-            // Seleção algorítmica aleatória
-            const indexAleatorio = Math.floor(Math.random() * baseCuriosidades.length);
-            const textoFinal = baseCuriosidades[indexAleatorio];
+            const randomPick = Math.floor(Math.random() * bancoCuriosidades.length);
+            const rawMessage = bancoCuriosidades[randomPick];
             
-            // Executa efeito de digitação real caractere por caractere
-            animarDigitacao(aiOutput, textoFinal);
-        }, 800);
+            chatBubbleText.style.opacity = 1;
+            typeWriterEffect(chatBubbleText, rawMessage);
+        }, 600);
     });
 
-    // Função de animação de digitação por varredura
-    function animarDigitacao(elemento, texto) {
-        elemento.innerHTML = "";
-        let i = 0;
+    function typeWriterEffect(element, text) {
+        element.innerHTML = "";
+        let index = 0;
         
-        const intervalo = setInterval(() => {
-            if (i < texto.length) {
-                elemento.innerHTML += texto.charAt(i);
-                i++;
+        const textTimer = setInterval(() => {
+            if (index < text.length) {
+                element.innerHTML += text.charAt(index);
+                index++;
             } else {
-                clearInterval(intervalo);
-                isProcessing = false; // Libera o terminal para novas consultas
+                clearInterval(textTimer);
+                dynamicTyping = false;
             }
-        }, 15); // Velocidade de renderização cibernética
+        }, 12); // Velocidade jovem e dinâmica de leitura
     }
 });
