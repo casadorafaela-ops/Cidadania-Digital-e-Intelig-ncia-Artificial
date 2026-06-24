@@ -1,83 +1,100 @@
-// COUNTERS
-document.querySelectorAll(".num").forEach(el=>{
-  let target = +el.dataset.target;
-  let count = 0;
+// =====================
+// PARTICLES
+// =====================
+const c=document.getElementById("bg");
+const x=c.getContext("2d");
 
-  let interval = setInterval(()=>{
-    count += target/80;
-    el.innerText = Math.floor(count);
+c.width=innerWidth;
+c.height=innerHeight;
 
-    if(count >= target) clearInterval(interval);
-  },20);
+let p=[];
+
+for(let i=0;i<100;i++){
+p.push({
+x:Math.random()*c.width,
+y:Math.random()*c.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
+
+function anim(){
+x.clearRect(0,0,c.width,c.height);
+
+p.forEach(e=>{
+e.x+=e.dx;
+e.y+=e.dy;
+
+if(e.x<0||e.x>c.width)e.dx*=-1;
+if(e.y<0||e.y>c.height)e.dy*=-1;
+
+x.beginPath();
+x.arc(e.x,e.y,e.r,0,Math.PI*2);
+x.fillStyle="#38bdf8";
+x.fill();
 });
 
+requestAnimationFrame(anim);
+}
+anim();
+
+
+// =====================
+// XP SYSTEM
+// =====================
+let xp=0;
+let level=1;
+
+function gainXP(){
+xp+=25;
+if(xp>=100){level++;xp=0;}
+
+document.getElementById("xp").innerText=xp;
+document.getElementById("level").innerText=level;
+}
+
+
+// =====================
 // QUIZ
-const quiz = [
-  {
-    q:"O que é cidadania digital?",
-    options:["Uso consciente","Jogos","Compras","Redes sociais"],
-    correct:0
-  }
-];
+// =====================
+const q={
+text:"O que é IA generativa?",
+options:["Robôs","Criação de conteúdo","Internet","Jogos"],
+correct:1
+};
 
-let qIndex = 0;
+document.getElementById("q").innerText=q.text;
 
-function loadQuiz(){
-  const q = quiz[qIndex];
-  document.getElementById("quiz-question").innerText = q.q;
+document.querySelectorAll("#quiz button").forEach((b,i)=>{
+b.innerText=q.options[i];
+});
 
-  document.querySelectorAll(".quiz-options button").forEach((b,i)=>{
-    b.innerText = q.options[i];
-  });
+function answer(i){
+document.getElementById("result").innerText=
+i===q.correct?"✔ Correto":"❌ Errado";
 }
 
-function answerQuiz(i){
-  document.getElementById("quiz-result").innerText =
-  i === quiz[qIndex].correct ? "Correto!" : "Errado!";
+
+// =====================
+// CHAT IA (NEURAL ENGINE)
+// =====================
+function chat(){
+let t=document.getElementById("input").value.toLowerCase();
+
+let r=
+t.includes("ia")?"IA é um sistema que aprende com dados":
+t.includes("cyber")?"Cyberbullying deve ser denunciado":
+t.includes("privacidade")?"Proteja seus dados pessoais":
+"Não tenho certeza, mas estou aprendendo...";
+
+document.getElementById("output").innerText=r;
 }
 
-loadQuiz();
 
-// GAME
-function gameChoice(c){
-  document.getElementById("game-result").innerText =
-  c===3 ? "Boa escolha!" : "Cuidado com dados pessoais!";
-}
-
-// IA SIMPLE
-function askAI(){
-  let text = document.getElementById("ia-input").value.toLowerCase();
-  document.getElementById("ia-response").innerText =
-  text.includes("ia") ? "IA é inteligência artificial" :
-  text.includes("cyber") ? "Cyberbullying é crime digital" :
-  "Não entendi";
-}
-
-// PROGRESS
-let progress=0;
-
-function increaseProgress(){
-  progress+=20;
-  document.getElementById("progress").style.width=progress+"%";
-
-  document.getElementById("badge").innerText =
-  progress>=100 ? "Você concluiu!" : "Continue...";
-}
-
-// CERT
-function generateCertificate(){
-  document.getElementById("certificate").innerText =
-  progress>=100 ? "Certificado aprovado!" : "Complete o progresso";
-}
-
-// FACTS
-const facts=[
-  "IA aprende com dados",
-  "Internet mudou o mundo",
-  "Cyberbullying deve ser denunciado"
-];
-
-function newFact(){
-  document.getElementById("fact").innerText =
-  facts[Math.floor(Math.random()*facts.length)];
+// =====================
+// MISSÕES
+// =====================
+function missionComplete(){
+document.getElementById("missionStatus").innerText="✔ Missão concluída!";
 }
