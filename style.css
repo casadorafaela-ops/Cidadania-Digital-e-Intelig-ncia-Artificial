@@ -1,433 +1,153 @@
-/* Paleta Cromática Fria Industrial e Neon de Elite */
-:root {
-    --bg-void: #02040a;
-    --bg-matrix-dark: #070c19;
-    --neon-cyan: #00f0ff;
-    --neon-electric: #0066ff;
-    --neon-border: rgba(0, 240, 255, 0.12);
-    --pure-white: #ffffff;
-    --cool-gray-text: #8ea1c1;
-    --glass-premium-bg: rgba(6, 11, 26, 0.7);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body{
+    background:#050505;
+    color:white;
 }
 
-body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-void);
-    color: var(--pure-white);
-    overflow-x: hidden;
-    position: relative;
+header{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+
+    background:
+    radial-gradient(circle at top,
+    #1E3A8A,
+    #050505 70%);
 }
 
-/* Fundo Dinâmico de Grade Cibernética Estilo Matriz */
-.cyber-grid-bg {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -3;
-    background: radial-gradient(circle at 50% 50%, var(--bg-matrix-dark) 0%, var(--bg-void) 100%);
-}
-.cyber-grid-bg::before {
-    content: "";
-    position: absolute;
-    width: 100%; height: 100%;
-    background-image: linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+.hero{
+    max-width:900px;
 }
 
-/* Efeito Supremo de Linhas de TV Antiga (Scanlines) */
-.scanlines {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-    background-size: 100% 3px, 6px 100%;
-    pointer-events: none;
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #38BDF8,
+    white);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-/* Header Flutuante Sem Borda Rígida (Dynamic Menu) */
-.supremo-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 6%;
-    background: rgba(2, 4, 10, 0.75);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border-bottom: 1px solid var(--neon-border);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.hero p{
+    color:#d1d5db;
+    font-size:1.2rem;
+    margin-bottom:30px;
 }
 
-.brand-core {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.btn{
+    padding:14px 30px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    margin:10px;
+    transition:.3s;
 }
 
-.status-node {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--neon-cyan);
-    box-shadow: 0 0 10px var(--neon-cyan);
+.primary{
+    background:#38BDF8;
+    color:black;
 }
 
-.alert-pulse {
-    animation: nodePulse 2s infinite ease-in-out;
+.secondary{
+    background:transparent;
+    color:white;
+    border:2px solid #38BDF8;
 }
 
-@keyframes nodePulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.4); opacity: 0.4; }
+.btn:hover{
+    transform:translateY(-5px);
 }
 
-.brand-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-}
-.brand-title span { color: var(--neon-cyan); }
-
-.matrix-nav {
-    display: flex;
-    gap: 10px;
+section{
+    padding:80px 10%;
 }
 
-/* Botões da Navbar Avançados Arredondados */
-.matrix-btn {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--cool-gray-text);
-    padding: 12px 24px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    font-family: 'Space Grotesk', sans-serif;
-    cursor: pointer;
-    border-radius: 30px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
 }
 
-.matrix-btn:hover, .matrix-btn.active {
-    color: var(--pure-white);
-    background: rgba(0, 240, 255, 0.06);
-    border-color: var(--neon-cyan);
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+.cards{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
 }
 
-.matrix-btn.active {
-    background: var(--neon-cyan);
-    color: var(--bg-void);
-    box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+.card{
+    background:#111827;
+    padding:25px;
+    border-radius:20px;
+
+    border:1px solid rgba(56,189,248,.2);
+
+    transition:.3s;
 }
 
-/* Grid Organizacional de Alta Performance */
-.supremo-content {
-    max-width: 1240px;
-    margin: 60px auto;
-    padding: 0 24px;
+.card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 0 25px rgba(56,189,248,.4);
 }
 
-.matrix-section {
-    display: none;
-}
-.matrix-section.active {
-    display: block;
-    animation: matrixEntry 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.card h3{
+    color:#38BDF8;
+    margin-bottom:10px;
 }
 
-@keyframes matrixEntry {
-    from { opacity: 0; transform: translateY(15px) scale(0.99); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+.stats{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
 }
 
-/* Hero Titulagem */
-.supremo-hero {
-    margin-bottom: 50px;
+.stat{
+    background:#111827;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
 }
 
-.cyber-tag {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--neon-cyan);
-    letter-spacing: 2px;
+.number{
+    font-size:3rem;
+    color:#38BDF8;
+    font-weight:700;
 }
 
-h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 3.2rem;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-top: 10px;
-    letter-spacing: -1px;
+footer{
+    text-align:center;
+    padding:30px;
+    background:#0a0a0a;
+    color:#9ca3af;
 }
 
-.supremo-hero p {
-    color: var(--cool-gray-text);
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin-top: 15px;
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
 }
 
-/* Painéis Bento de Estrutura Premium */
-.supremo-bento {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 24px;
+.section-title{
+    font-size:2rem;
 }
 
-.node-double {
-    grid-column: span 2;
-}
-
-.glass-matrix {
-    background: var(--glass-premium-bg);
-    border: 1px solid var(--neon-border);
-    border-radius: 28px; /* Arredondamento Perfeito */
-    padding: 35px;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-matrix:hover {
-    border-color: rgba(0, 240, 255, 0.4);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.05);
-    transform: translateY(-5px);
-}
-
-.node-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-}
-
-.node-index {
-    font-family: 'Space Grotesk', sans-serif;
-    color: var(--neon-cyan);
-    font-weight: 700;
-}
-
-h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.7rem;
-    font-weight: 700;
-}
-
-.glass-matrix p {
-    color: var(--cool-gray-text);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-/* Contentores de Mídias Reais Refinados */
-.supremo-media-wrapper {
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background: #000;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-}
-
-.video-aspect {
-    position: relative;
-    padding-bottom: 53%;
-    height: 0;
-}
-.video-aspect iframe {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-}
-
-.img-aspect {
-    height: 250px;
-}
-.img-aspect img {
-    width: 100%; height: 100%; object-fit: cover;
-    filter: brightness(0.8) contrast(1.1);
-    transition: filter 0.3s;
-}
-.glass-matrix:hover .img-aspect img {
-    filter: brightness(1) contrast(1);
-}
-
-/* Lab Científico */
-.article-meta-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.journal-badge {
-    background: var(--neon-electric);
-    color: #fff;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 12px;
-}
-.journal-badge.nature-color {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.metric-badge {
-    color: var(--neon-cyan);
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.scientific-quote {
-    font-style: italic;
-    border-left: 4px solid var(--neon-cyan);
-    padding-left: 20px;
-    color: #cbd5e1 !important;
-}
-
-.compact-height {
-    height: 160px;
-    margin-bottom: 20px;
-}
-
-.matrix-link {
-    color: var(--neon-cyan);
-    text-decoration: none;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-.matrix-link:hover { text-decoration: underline; }
-
-/* Bloco do Terminal Interativo Real (Aba 3) */
-.supremo-terminal {
-    max-width: 750px;
-    margin: 0 auto;
-    border-radius: 24px;
-    border: 1px solid rgba(0, 102, 255, 0.3);
-    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.1);
-}
-
-.terminal-topbar {
-    background: #090f21;
-    padding: 16px 25px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.terminal-signals {
-    display: flex;
-    gap: 8px;
-    margin-right: 20px;
-}
-.sig-node { width: 10px; height: 10px; border-radius: 50%; }
-.sig-node.red { background: #ff4545; }
-.sig-node.yellow { background: #ffb800; }
-.sig-node.blue { background: var(--neon-cyan); }
-
-.terminal-host {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.8rem;
-    color: var(--cool-gray-text);
-}
-
-.terminal-screen {
-    padding: 35px;
-    min-height: 180px;
-    background: #02050d;
-}
-
-.screen-row {
-    display: flex;
-    gap: 15px;
-}
-
-.sys-pointer {
-    color: var(--neon-cyan);
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-}
-
-#supremo-response-box {
-    color: #e2e8f0;
-    font-size: 1.05rem;
-}
-
-.terminal-actions { padding: 0 35px 35px; }
-
-/* Botão Supremo de Ação Neon */
-.action-neon-btn {
-    position: relative;
-    width: 100%;
-    padding: 18px;
-    background: linear-gradient(90deg, var(--neon-electric), #1e3a8a);
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);
-    transition: all 0.3s;
-}
-.action-neon-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(0, 240, 255, 0.4);
-}
-
-/* Rodapé */
-.supremo-footer {
-    border-top: 1px solid var(--neon-border);
-    padding: 40px 20px;
-    margin-top: 80px;
-    background: #02040a;
-}
-.footer-layout {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-.supremo-footer p {
-    color: var(--cool-gray-text);
-    font-size: 0.85rem;
-    font-family: 'Space Grotesk', sans-serif;
-}
-.hash-tag-badge {
-    background: rgba(0, 240, 255, 0.08);
-    color: var(--neon-cyan);
-    border: 1px solid var(--neon-cyan);
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 0.85rem;
-}
-
-/* Responsividade de Alta Usabilidade */
-@media (max-width: 992px) {
-    .node-double { grid-column: auto; }
-    h1 { font-size: 2.4rem; }
-}
-@media (max-width: 768px) {
-    .supremo-header { flex-direction: column; gap: 20px; padding: 20px; }
 }
