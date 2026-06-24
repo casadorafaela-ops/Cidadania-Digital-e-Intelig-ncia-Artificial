@@ -8,30 +8,25 @@ font-family:Inter;
 body{
 background:#050816;
 color:white;
-overflow-x:hidden;
-}
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
 }
 
 .nav{
 display:flex;
 justify-content:space-between;
-padding:20px 50px;
-backdrop-filter:blur(20px);
+padding:15px 30px;
 background:rgba(10,15,30,.6);
 position:fixed;
 width:100%;
+backdrop-filter:blur(20px);
+z-index:10;
 }
 
-.nav a{
+.nav button{
+background:transparent;
+border:none;
 color:#aaa;
-margin:0 10px;
-text-decoration:none;
+margin:0 8px;
+cursor:pointer;
 }
 
 .logo{
@@ -48,21 +43,11 @@ justify-content:center;
 text-align:center;
 }
 
-.hero h1{
-font-size:3.5rem;
-background:linear-gradient(90deg,#38bdf8,#fff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-button{
-padding:12px 25px;
-border:none;
-border-radius:30px;
-background:#38bdf8;
-font-weight:600;
-cursor:pointer;
+.hero img{
+width:300px;
 margin-top:20px;
+border-radius:20px;
+opacity:.8;
 }
 
 .section{
@@ -71,6 +56,13 @@ padding:100px 10%;
 
 .dark{
 background:#0b1220;
+}
+
+.text{
+max-width:800px;
+margin:20px 0;
+color:#bbb;
+line-height:1.6;
 }
 
 .grid{
@@ -82,9 +74,30 @@ gap:20px;
 .card{
 background:rgba(255,255,255,.05);
 padding:20px;
-border-radius:20px;
+border-radius:15px;
 border:1px solid rgba(56,189,248,.2);
-backdrop-filter:blur(10px);
+}
+
+.img{
+width:100%;
+max-width:600px;
+border-radius:20px;
+margin:20px 0;
+opacity:.9;
+}
+
+/* ANIMAÇÃO */
+.fade{
+opacity:0;
+transform:translateY(40px);
+animation:show .8s forwards;
+}
+
+@keyframes show{
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 input{
@@ -92,13 +105,13 @@ width:100%;
 padding:12px;
 border-radius:10px;
 border:none;
-margin-bottom:10px;
 background:#0b1220;
 color:white;
+margin-bottom:10px;
 }
 
 footer{
 text-align:center;
-padding:40px;
+padding:30px;
 color:#666;
 }
