@@ -1,126 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital e IA</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cidadania Digital & IA</title>
 
-    <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header>
-    <div class="hero">
-        <h1>Cidadania Digital e Inteligência Artificial</h1>
+<!-- NAV -->
+<header class="nav">
+  <div class="logo">DIGITAL.AI</div>
 
-        <p>
-            Construindo um futuro tecnológico mais seguro,
-            ético e inteligente.
-        </p>
-
-        <button class="btn primary">Explorar</button>
-        <button class="btn secondary">Saiba Mais</button>
-    </div>
+  <nav>
+    <a href="#sobre">Cidadania</a>
+    <a href="#ia">IA</a>
+    <a href="#dados">Dados</a>
+    <a href="#futuro">Futuro</a>
+  </nav>
 </header>
 
-<section>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Cidadania Digital & Inteligência Artificial</h1>
+    <p>Construindo um futuro digital seguro, ético e inteligente.</p>
 
-    <h2 class="section-title">Cidadania Digital</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Segurança Online</h3>
-            <p>Proteção contra golpes e ameaças digitais.</p>
-        </div>
-
-        <div class="card">
-            <h3>Privacidade</h3>
-            <p>Controle de dados e informações pessoais.</p>
-        </div>
-
-        <div class="card">
-            <h3>Ética Digital</h3>
-            <p>Uso responsável da internet.</p>
-        </div>
-
-        <div class="card">
-            <h3>Fake News</h3>
-            <p>Combate à desinformação.</p>
-        </div>
-
+    <div class="buttons">
+      <button>Explorar</button>
+      <button class="outline">Saiba mais</button>
     </div>
+  </div>
 
+  <div class="glow"></div>
 </section>
 
-<section>
+<!-- SOBRE -->
+<section id="sobre" class="section">
+  <h2>Cidadania Digital</h2>
 
-    <h2 class="section-title">Inteligência Artificial</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Machine Learning</h3>
-            <p>Aprendizado baseado em dados.</p>
-        </div>
-
-        <div class="card">
-            <h3>Deep Learning</h3>
-            <p>Redes neurais avançadas.</p>
-        </div>
-
-        <div class="card">
-            <h3>IA Generativa</h3>
-            <p>Criação de textos e imagens.</p>
-        </div>
-
-        <div class="card">
-            <h3>Automação</h3>
-            <p>Maior eficiência nos processos.</p>
-        </div>
-
-    </div>
-
+  <div class="grid">
+    <div class="card">Segurança Online</div>
+    <div class="card">Privacidade de Dados</div>
+    <div class="card">Ética Digital</div>
+    <div class="card">Combate à Desinformação</div>
+  </div>
 </section>
 
-<section>
+<!-- IA -->
+<section id="ia" class="section dark">
+  <h2>Inteligência Artificial</h2>
 
-    <h2 class="section-title">Estatísticas</h2>
+  <div class="grid">
+    <div class="card">Machine Learning</div>
+    <div class="card">Deep Learning</div>
+    <div class="card">IA Generativa</div>
+    <div class="card">Automação</div>
+  </div>
+</section>
 
-    <div class="stats">
+<!-- DADOS -->
+<section id="dados" class="section">
+  <h2>Estatísticas Globais</h2>
 
-        <div class="stat">
-            <div class="number" data-target="5500">0</div>
-            <p>Milhões de usuários da internet</p>
-        </div>
-
-        <div class="stat">
-            <div class="number" data-target="70">0</div>
-            <p>% das empresas usam IA</p>
-        </div>
-
-        <div class="stat">
-            <div class="number" data-target="90">0</div>
-            <p>% dos jovens usam redes sociais</p>
-        </div>
-
-        <div class="stat">
-            <div class="number" data-target="30">0</div>
-            <p>% crescimento anual da IA</p>
-        </div>
-
+  <div class="stats">
+    <div class="stat">
+      <span class="num" data-target="5500">0</span>
+      <p>Milhões de usuários</p>
     </div>
 
+    <div class="stat">
+      <span class="num" data-target="70">0</span>
+      <p>% empresas usam IA</p>
+    </div>
+
+    <div class="stat">
+      <span class="num" data-target="90">0</span>
+      <p>% jovens conectados</p>
+    </div>
+  </div>
+</section>
+
+<!-- FUTURO -->
+<section id="futuro" class="section dark">
+  <h2>O Futuro</h2>
+  <p class="center">
+    A integração entre humanos e inteligência artificial definirá a próxima era digital.
+  </p>
 </section>
 
 <footer>
-    <p>© 2026 - Cidadania Digital e IA</p>
+  <p>© 2026 DIGITAL.AI</p>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
