@@ -1,57 +1,122 @@
-// ======================
-// PROGRESSO
-// ======================
-
-let progressValue = 0;
-
-function increaseProgress(){
-  if(progressValue < 100){
-    progressValue += 20;
-  }
-
-  document.getElementById("progress").style.width = progressValue + "%";
-
-  const badge = document.getElementById("badge");
-
-  if(progressValue >= 100){
-    badge.innerText = "🏆 Você se tornou um Cidadão Digital!";
-  } else if(progressValue >= 60){
-    badge.innerText = "🔥 Quase lá!";
-  } else {
-    badge.innerText = "📚 Continue aprendendo...";
-  }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter, sans-serif;
 }
 
-
-// ======================
-// CERTIFICADO
-// ======================
-
-function generateCertificate(){
-  const cert = document.getElementById("certificate");
-
-  if(progressValue < 100){
-    cert.innerText = "Você precisa completar o progresso primeiro.";
-  } else {
-    cert.innerText =
-    "CERTIFICADO: Cidadão Digital Consciente e Conhecedor de IA ✔";
-  }
+body{
+  background:#050814;
+  color:white;
 }
 
+.nav{
+  position:fixed;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:20px 50px;
+  backdrop-filter:blur(20px);
+  background:rgba(10,15,30,0.6);
+}
 
-// ======================
-// CURIOSIDADES
-// ======================
+.nav a{
+  color:#aaa;
+  margin:0 10px;
+  text-decoration:none;
+}
 
-const facts = [
-  "A IA já consegue criar músicas e filmes.",
-  "Mais de 90% dos dados do mundo foram criados nos últimos anos.",
-  "A primeira IA surgiu na década de 1950.",
-  "Cyberbullying é crime em muitos países.",
-  "IA já é usada em hospitais para diagnósticos."
-];
+.logo{
+  color:#38bdf8;
+  font-weight:700;
+}
 
-function newFact(){
-  const fact = facts[Math.floor(Math.random() * facts.length)];
-  document.getElementById("fact").innerText = fact;
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:3rem;
+  background:linear-gradient(90deg,#38bdf8,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  color:#aaa;
+}
+
+.section{
+  padding:100px 10%;
+}
+
+.dark{
+  background:#0b1220;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  border:1px solid rgba(56,189,248,0.2);
+}
+
+.stats{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.stat{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+}
+
+.num{
+  font-size:2rem;
+  color:#38bdf8;
+}
+
+.quiz-options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.quiz-options button{
+  background:#111827;
+  color:white;
+  border:1px solid #38bdf8;
+  padding:10px;
+  border-radius:10px;
+}
+
+.progress-bar{
+  width:100%;
+  height:15px;
+  background:#111;
+  border-radius:10px;
+}
+
+#progress{
+  height:100%;
+  width:0%;
+  background:#38bdf8;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#666;
 }
