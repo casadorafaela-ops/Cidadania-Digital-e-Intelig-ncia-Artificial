@@ -1,33 +1,29 @@
-const counters = document.querySelectorAll('.number');
+// ANIMAÇÃO DE NÚMEROS
+const numbers = document.querySelectorAll(".num");
 
-counters.forEach(counter => {
+numbers.forEach(num => {
+  const update = () => {
+    const target = +num.getAttribute("data-target");
+    const current = +num.innerText;
 
-    const updateCounter = () => {
+    const step = target / 80;
 
-        const target =
-        Number(counter.getAttribute('data-target'));
+    if(current < target){
+      num.innerText = Math.ceil(current + step);
+      setTimeout(update, 20);
+    } else {
+      num.innerText = target;
+    }
+  };
 
-        const current =
-        Number(counter.innerText);
+  update();
+});
 
-        const increment =
-        target / 100;
-
-        if(current < target){
-
-            counter.innerText =
-            Math.ceil(current + increment);
-
-            setTimeout(updateCounter,20);
-
-        }else{
-
-            counter.innerText = target;
-
-        }
-
-    };
-
-    updateCounter();
-
+// SCROLL SUAVE SIMPLES
+document.querySelectorAll("a").forEach(a=>{
+  a.addEventListener("click",e=>{
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute("href"));
+    target.scrollIntoView({behavior:"smooth"});
+  });
 });
