@@ -1,16 +1,149 @@
-<!-- PROGRESSO DO USUÁRIO -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cidadania Digital & IA</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="logo">DIGITAL.AI</div>
+
+  <nav>
+    <a href="#sobre">Cidadania</a>
+    <a href="#ia">IA</a>
+    <a href="#dados">Dados</a>
+    <a href="#futuro">Futuro</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Cidadania Digital & Inteligência Artificial</h1>
+    <p>Construindo um futuro digital seguro, ético e inteligente.</p>
+
+    <div class="buttons">
+      <button>Explorar</button>
+      <button class="outline">Saiba mais</button>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="section">
+  <h2>Cidadania Digital</h2>
+
+  <div class="grid">
+    <div class="card">Segurança Online</div>
+    <div class="card">Privacidade de Dados</div>
+    <div class="card">Ética Digital</div>
+    <div class="card">Fake News</div>
+  </div>
+</section>
+
+<section id="ia" class="section dark">
+  <h2>Inteligência Artificial</h2>
+
+  <div class="grid">
+    <div class="card">Machine Learning</div>
+    <div class="card">Deep Learning</div>
+    <div class="card">IA Generativa</div>
+    <div class="card">Automação</div>
+  </div>
+</section>
+
+<section id="dados" class="section">
+  <h2>Estatísticas</h2>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="num" data-target="5500">0</span>
+      <p>Milhões de usuários</p>
+    </div>
+
+    <div class="stat">
+      <span class="num" data-target="70">0</span>
+      <p>% empresas usam IA</p>
+    </div>
+
+    <div class="stat">
+      <span class="num" data-target="90">0</span>
+      <p>% jovens conectados</p>
+    </div>
+  </div>
+</section>
+
+<!-- CYBERBULLYING -->
 <section class="section dark">
-  <h2>Seu Progresso Digital</h2>
+  <h2>Cyberbullying</h2>
+
+  <div class="grid">
+    <div class="card">Ofensas online causam danos reais</div>
+    <div class="card">Denuncie conteúdos abusivos</div>
+    <div class="card">Pratique empatia digital</div>
+    <div class="card">Não compartilhe ataques</div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section">
+  <h2>Quiz Digital</h2>
+
+  <div class="card quiz-box">
+    <p id="quiz-question"></p>
+
+    <div class="quiz-options">
+      <button onclick="answerQuiz(0)"></button>
+      <button onclick="answerQuiz(1)"></button>
+      <button onclick="answerQuiz(2)"></button>
+      <button onclick="answerQuiz(3)"></button>
+    </div>
+
+    <p id="quiz-result"></p>
+  </div>
+</section>
+
+<!-- JOGO -->
+<section class="section dark">
+  <h2>Jogo de Decisão</h2>
 
   <div class="card">
-    <p>Você está aprendendo cidadania digital e IA</p>
+    <p>Mensagem suspeita pedindo dados. O que você faz?</p>
 
+    <button onclick="gameChoice(1)">Responder</button>
+    <button onclick="gameChoice(2)">Ignorar</button>
+    <button onclick="gameChoice(3)">Denunciar</button>
+
+    <p id="game-result"></p>
+  </div>
+</section>
+
+<!-- IA FAQ -->
+<section class="section">
+  <h2>Assistente IA</h2>
+
+  <div class="card">
+    <input id="ia-input" placeholder="Digite sua dúvida..." />
+    <button onclick="askAI()">Perguntar</button>
+
+    <p id="ia-response"></p>
+  </div>
+</section>
+
+<!-- PROGRESSO -->
+<section class="section dark">
+  <h2>Seu Progresso</h2>
+
+  <div class="card">
     <div class="progress-bar">
       <div id="progress"></div>
     </div>
 
-    <button onclick="increaseProgress()">Avançar Progresso</button>
-
+    <button onclick="increaseProgress()">Avançar</button>
     <p id="badge"></p>
   </div>
 </section>
@@ -20,19 +153,25 @@
   <h2>Certificado Digital</h2>
 
   <div class="card">
-    <p>Gere seu certificado após aprender</p>
     <button onclick="generateCertificate()">Gerar Certificado</button>
-
     <p id="certificate"></p>
   </div>
 </section>
 
 <!-- CURIOSIDADES -->
 <section class="section dark">
-  <h2>Curiosidades de IA</h2>
+  <h2>Curiosidades IA</h2>
 
   <div class="card">
-    <p id="fact">Clique para descobrir algo novo</p>
+    <p id="fact">Clique para ver uma curiosidade</p>
     <button onclick="newFact()">Nova curiosidade</button>
   </div>
 </section>
+
+<footer>
+  <p>© 2026 DIGITAL.AI</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
