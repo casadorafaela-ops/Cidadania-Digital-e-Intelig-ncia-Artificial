@@ -1,29 +1,146 @@
-// ANIMAÇÃO DE NÚMEROS
-const numbers = document.querySelectorAll(".num");
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter, sans-serif;
+}
 
-numbers.forEach(num => {
-  const update = () => {
-    const target = +num.getAttribute("data-target");
-    const current = +num.innerText;
+body{
+  background:#050814;
+  color:white;
+  overflow-x:hidden;
+}
 
-    const step = target / 80;
+/* NAV */
+.nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+  backdrop-filter: blur(20px);
+  background:rgba(10,15,30,0.6);
+  z-index:100;
+}
 
-    if(current < target){
-      num.innerText = Math.ceil(current + step);
-      setTimeout(update, 20);
-    } else {
-      num.innerText = target;
-    }
-  };
+.nav a{
+  margin:0 15px;
+  color:#bbb;
+  text-decoration:none;
+}
 
-  update();
-});
+.logo{
+  font-weight:700;
+  color:#38bdf8;
+}
 
-// SCROLL SUAVE SIMPLES
-document.querySelectorAll("a").forEach(a=>{
-  a.addEventListener("click",e=>{
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute("href"));
-    target.scrollIntoView({behavior:"smooth"});
-  });
-});
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+.hero h1{
+  font-size:3.5rem;
+  background:linear-gradient(90deg,#38bdf8,#ffffff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  margin-top:15px;
+  color:#aaa;
+}
+
+.buttons{
+  margin-top:30px;
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  margin:10px;
+  background:#38bdf8;
+  color:black;
+  font-weight:600;
+}
+
+button.outline{
+  background:transparent;
+  border:1px solid #38bdf8;
+  color:white;
+}
+
+/* SECTIONS */
+.section{
+  padding:100px 10%;
+}
+
+.section h2{
+  font-size:2.5rem;
+  margin-bottom:40px;
+}
+
+.dark{
+  background:#0b1220;
+}
+
+.center{
+  text-align:center;
+  color:#aaa;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:20px;
+  border:1px solid rgba(56,189,248,0.2);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  border-color:#38bdf8;
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.stat{
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  min-width:200px;
+}
+
+.num{
+  font-size:2.5rem;
+  color:#38bdf8;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  color:#666;
+}
