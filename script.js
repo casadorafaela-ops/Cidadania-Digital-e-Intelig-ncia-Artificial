@@ -1,56 +1,94 @@
-// NAVEGAÇÃO SUAVE
-function go(id){
-document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
-
-// CURIOSIDADES
-const facts=[
-"IA já consegue criar músicas e imagens",
-"Mais de 90% dos dados foram criados recentemente",
-"Cyberbullying pode ser crime em muitos países",
-"Internet surgiu para comunicação militar"
-];
-
-function newFact(){
-document.getElementById("fact").innerText =
-facts[Math.floor(Math.random()*facts.length)];
-}
-
-// SIMULAÇÃO SEGURANÇA
-function safe(n){
-document.getElementById("safeResult") =
-document.getElementById("safeResult").innerText =
-n===3 ? "✔ Você agiu corretamente!" :
-"❌ Perigo: nunca envie senhas";
-}
-
-// QUIZ
-const q={
-text:"O que é IA?",
-options:["Máquina inteligente","Jogo","Site","App"],
-correct:0
-};
-
-document.getElementById("q").innerText=q.text;
-
-document.querySelectorAll("#quiz button").forEach((b,i)=>{
-b.innerText=q.options[i];
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 50 },
+    color: { value: "#4cc9f0" },
+    size: { value: 3 },
+    move: { speed: 2 }
+  }
 });
 
-function answer(i){
-document.getElementById("r").innerText =
-i===q.correct?"✔ Correto":"❌ Errado";
+const topBtn = document.getElementById("top");
+
+window.onscroll = () => {
+  topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+};
+
+topBtn.onclick = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+new Chart(document.getElementById("chart"), {
+  type: "line",
+  data: {
+    labels: ["2019","2020","2021","2022","2023"],
+    datasets: [{
+      label: "IA",
+      data: [10, 25, 45, 70, 90],
+      borderColor: "#4cc9f0",
+      tension: 0.4
+    }]
+  }
+});
+
+const questions = [
+  { q: "O que é IA?", a: ["Internet","Inteligência Artificial","App"], c: 1 },
+  { q: "O que é phishing?", a: ["Golpe","Jogo","Rede social"], c: 0 }
+];
+
+let i = 0;
+let score = 0;
+
+function loadQuiz() {
+  document.getElementById("question").innerText = questions[i].q;
+
+  const box = document.getElementById("answers");
+  box.innerHTML = "";
+
+  questions[i].a.forEach((text, idx) => {
+    const btn = document.createElement("button");
+    btn.innerText = text;
+
+    btn.onclick = () => {
+      if (idx === questions[i].c) {
+        score += 10;
+        btn.style.background = "#00ff99";
+      } else {
+        btn.style.background = "#ff4d4d";
+      }
+
+      document.getElementById("score").innerText = score;
+    };
+
+    box.appendChild(btn);
+  });
 }
 
-// IA CHAT
-function chat(){
-let t=document.getElementById("input").value.toLowerCase();
+document.getElementById("next").onclick = () => {
+  i++;
+  if (i < questions.length) loadQuiz();
+};
 
-let r=
-t.includes("ia")?"IA aprende com dados":
-t.includes("cyber")?"Cyberbullying é agressão online":
-t.includes("privacidade")?"Proteja seus dados pessoais":
-"Não entendi bem";
+loadQuiz();
 
-document.getElementById("out").innerText=r;
+function send() {
+  const input = document.getElementById("input");
+  const box = document.getElementById("chatBox");
+
+  if (!input.value.trim()) return;
+
+  box.innerHTML += `<div>Você: ${input.value}</div>`;
+
+  let res = "Não entendi.";
+
+  if (input.value.toLowerCase().includes("ia")) {
+    res = "IA é Inteligência Artificial.";
+  }
+
+  if (input.value.toLowerCase().includes("segurança")) {
+    res = "Segurança digital protege seus dados.";
+  }
+
+  box.innerHTML += `<div>IA: ${res}</div>`;
+
+  input.value = "";
 }
