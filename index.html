@@ -1,140 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital AI Learning</title>
 
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Digital Future • IA & Cidadania Digital</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-<header class="nav">
-  <div class="logo">NEURAL LEARN</div>
+<div id="particles-js"></div>
+
+<header class="navbar">
+  <div class="logo">⚡ Digital Future</div>
 
   <nav>
-    <button onclick="go('intro')">Início</button>
-    <button onclick="go('cidadania')">Cidadania</button>
-    <button onclick="go('ia')">IA</button>
-    <button onclick="go('curiosidades')">Curiosidades</button>
-    <button onclick="go('quiz')">Quiz</button>
-    <button onclick="go('chat')">IA</button>
+    <a href="#home">Início</a>
+    <a href="#ai">IA</a>
+    <a href="#security">Segurança</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#chat">Chat IA</a>
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero fade">
-  <h1>Aprenda o Mundo Digital</h1>
-  <p>Cidadania Digital, IA e Segurança Online</p>
-  <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" />
+<section id="home" class="hero">
+  <h1>O Futuro da <span>Educação Digital</span></h1>
+  <p>Aprenda IA, segurança digital e cidadania na internet.</p>
 </section>
 
-<!-- INTRO -->
-<section id="intro" class="section fade">
-  <h2>📘 Introdução</h2>
-
-  <p class="text">
-    Você está entrando em uma plataforma educativa sobre tecnologia moderna.
-    Aqui você aprende como funciona a internet, inteligência artificial e como se proteger no mundo digital.
-  </p>
-
-  <img class="img" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5">
+<section id="ai" class="section glass">
+  <h2>Inteligência Artificial</h2>
+  <canvas id="chart"></canvas>
 </section>
 
-<!-- CIDADANIA -->
-<section id="cidadania" class="section dark fade">
-  <h2>🌐 Cidadania Digital</h2>
-
-  <p class="text">
-    Cidadania digital é o uso responsável da internet.
-    Inclui respeito, privacidade e segurança.
-  </p>
-
-  <div class="grid">
-    <div class="card">Privacidade de dados</div>
-    <div class="card">Comportamento online</div>
-    <div class="card">Segurança digital</div>
-  </div>
+<section id="security" class="section">
+  <h2>Segurança Digital</h2>
+  <p>Proteja seus dados e evite golpes online.</p>
 </section>
 
-<!-- SIMULAÇÃO SEGURANÇA -->
-<section class="section fade">
-  <h2>🛡️ Simulação de Segurança</h2>
+<section id="quiz" class="section glass">
+  <h2>Quiz Interativo</h2>
 
-  <div class="card">
-    <p>Alguém pediu sua senha em um site suspeito.</p>
+  <p id="question"></p>
+  <div id="answers"></div>
 
-    <button onclick="safe(1)">Enviar senha</button>
-    <button onclick="safe(2)">Ignorar</button>
-    <button onclick="safe(3)">Denunciar</button>
+  <button id="next">Próxima</button>
 
-    <p id="safeResult"></p>
-  </div>
+  <p>Pontos: <span id="score">0</span></p>
 </section>
 
-<!-- IA -->
-<section id="ia" class="section dark fade">
-  <h2>🤖 Inteligência Artificial</h2>
+<section id="chat" class="section">
+  <h2>Assistente IA</h2>
 
-  <p class="text">
-    IA é a capacidade de máquinas aprenderem com dados e tomarem decisões.
-  </p>
+  <div id="chatBox"></div>
 
-  <img class="img" src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
-
-  <div class="grid">
-    <div class="card">Machine Learning</div>
-    <div class="card">IA Generativa</div>
-    <div class="card">Automação</div>
-  </div>
+  <input id="input" placeholder="Digite sua pergunta...">
+  <button onclick="send()">Enviar</button>
 </section>
 
-<!-- CURIOSIDADES -->
-<section id="curiosidades" class="section fade">
-  <h2>💡 Curiosidades</h2>
+<button id="top">⬆</button>
 
-  <div class="card">
-    <p id="fact">Clique para descobrir algo novo</p>
-    <button onclick="newFact()">Nova curiosidade</button>
-  </div>
-</section>
-
-<!-- QUIZ -->
-<section id="quiz" class="section dark fade">
-  <h2>🧠 Quiz</h2>
-
-  <div class="card">
-    <h3 id="q"></h3>
-
-    <div class="grid">
-      <button onclick="answer(0)"></button>
-      <button onclick="answer(1)"></button>
-      <button onclick="answer(2)"></button>
-      <button onclick="answer(3)"></button>
-    </div>
-
-    <p id="r"></p>
-  </div>
-</section>
-
-<!-- CHAT IA -->
-<section id="chat" class="section fade">
-  <h2>💬 IA Assistente</h2>
-
-  <div class="card">
-    <input id="input" placeholder="Pergunte algo..." />
-    <button onclick="chat()">Perguntar</button>
-
-    <p id="out"></p>
-  </div>
-</section>
-
-<footer>
-  <p>© Digital Learning AI</p>
-</footer>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script src="script.js"></script>
+
 </body>
 </html>
