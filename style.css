@@ -1,16 +1,30 @@
+/* Resets e Variáveis de Cores Tecnológicas */
+:root {
+  --bg-color: #0a0b10;
+  --panel-bg: rgba(18, 20, 32, 0.65);
+  --accent-cyan: #00f2fe;
+  --accent-purple: #7f00ff;
+  --accent-pink: #ff007f;
+  --text-main: #e2e8f0;
+  --font-cyber: 'Orbitron', sans-serif;
+  --font-main: 'Poppins', sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial;
 }
 
 body {
-  background: #05070f;
-  color: white;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-main);
   overflow-x: hidden;
+  background-image: linear-gradient(135deg, #0a0b10 0%, #16192b 100%);
 }
 
+/* Background de Partículas fixo atrás de tudo */
 #particles-js {
   position: fixed;
   width: 100%;
@@ -18,74 +32,222 @@ body {
   z-index: -1;
 }
 
+/* Navbar Estilo Neon */
 .navbar {
-  position: fixed;
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 15px 25px;
-  background: rgba(0,0,0,0.5);
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: rgba(10, 11, 16, 0.85);
   backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--accent-purple);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.navbar a {
-  color: white;
-  margin: 0 10px;
+.logo {
+  font-family: var(--font-cyber);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px var(--accent-cyan);
+}
+
+nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent-pink);
+  text-shadow: 0 0 8px var(--accent-pink);
+}
+
+/* Hero Section */
+.hero {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.hero h1 {
+  font-family: var(--font-cyber);
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: transparent;
+  background: linear-gradient(45deg, var(--accent-cyan), var(--accent-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  opacity: 0.8;
+}
+
+/* Botões Cyberpunk */
+.btn-cyber {
+  font-family: var(--font-cyber);
+  padding: 0.8rem 2rem;
+  background: transparent;
+  color: var(--accent-cyan);
+  border: 2px solid var(--accent-cyan);
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+.btn-cyber:hover {
+  background: var(--accent-cyan);
+  color: var(--bg-color);
+  box-shadow: 0 0 20px var(--accent-cyan);
 }
 
-.hero span {
-  color: #4cc9f0;
-}
-
+/* Seções Gerais e Efeito Vidro (Glassmorphism) */
 .section {
-  padding: 80px 20px;
-  text-align: center;
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 3rem;
+  border-radius: 12px;
 }
 
 .glass {
-  background: rgba(255,255,255,0.05);
-  padding: 25px;
-  border-radius: 15px;
-  margin: 20px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-#answers button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  background: #4cc9f0;
-  border: none;
+h2 {
+  font-family: var(--font-cyber);
+  font-size: 2rem;
+  color: var(--accent-cyan);
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--accent-pink);
+  padding-left: 10px;
+}
+
+/* Layouts de Grid e Cards */
+.grid-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
   border-radius: 8px;
-  cursor: pointer;
+  border: 1px solid rgba(127, 0, 255, 0.2);
+  transition: transform 0.3s ease;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-pink);
+}
+
+.card-mini {
+  background: rgba(0, 242, 254, 0.05);
+  border-left: 3px solid var(--accent-cyan);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.icon-neon {
+  font-size: 2.5rem;
+  color: var(--accent-pink);
+  margin-bottom: 1rem;
+}
+
+.text-cyan { color: var(--accent-cyan); }
+
+/* Customização da lista */
+.tech-list {
+  list-style: none;
+}
+.tech-list li {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+/* Caixa de Chat Terminal Style */
 #chatBox {
-  height: 200px;
+  background: #05060c;
+  height: 300px;
+  border: 1px solid var(--accent-purple);
+  border-radius: 6px;
+  padding: 1rem;
   overflow-y: auto;
-  background: rgba(255,255,255,0.05);
-  padding: 10px;
-  border-radius: 10px;
+  font-family: monospace;
+}
+
+.chat-input-area {
+  display: flex;
+  margin-top: 1rem;
+  gap: 1rem;
 }
 
 #input {
-  padding: 10px;
-  width: 60%;
+  flex: 1;
+  background: #121420;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.8rem;
+  color: #fff;
+  border-radius: 4px;
 }
 
+#input:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+}
+
+.btn-send {
+  background: var(--accent-purple);
+  border: none;
+  color: white;
+  padding: 0 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Botão Voltar ao Topo */
 #top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 10px;
-  display: none;
+  background: var(--accent-pink);
+  color: #fff;
+  border: none;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent-pink);
 }
