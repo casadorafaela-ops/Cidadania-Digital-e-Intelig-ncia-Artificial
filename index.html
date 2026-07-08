@@ -4,13 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Digital Future • IA & Cidadania Digital</title>
-
   <link rel="stylesheet" href="style.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -19,57 +16,99 @@
 <div id="particles-js"></div>
 
 <header class="navbar">
-  <div class="logo">⚡ Digital Future</div>
-
+  <div class="logo"><i class="fa-solid fa-bolt-lightning"></i> Digital Future</div>
   <nav>
-    <a href="#home">Início</a>
-    <a href="#ai">IA</a>
-    <a href="#security">Segurança</a>
-    <a href="#quiz">Quiz</a>
-    <a href="#chat">Chat IA</a>
+    <a href="#home"><i class="fa-solid fa-house"></i> Início</a>
+    <a href="#ai"><i class="fa-solid fa-brain"></i> IA</a>
+    <a href="#etica"><i class="fa-solid fa-scale-balanced"></i> Ética</a>
+    <a href="#security"><i class="fa-solid fa-shield-halved"></i> Segurança</a>
+    <a href="#carreiras"><i class="fa-solid fa-briefcase"></i> Carreiras</a>
+    <a href="#quiz"><i class="fa-solid fa-gamepad"></i> Quiz</a>
+    <a href="#chat"><i class="fa-solid fa-comments"></i> Chat IA</a>
   </nav>
 </header>
 
 <section id="home" class="hero">
-  <h1>O Futuro da <span>Educação Digital</span></h1>
-  <p>Aprenda IA, segurança digital e cidadania na internet.</p>
+  <div class="hero-content">
+    <h1>O Futuro da <span>Educação Digital</span></h1>
+    <p>Explore o universo da Inteligência Artificial, domine a segurança cibernética e lidere a nova era da cidadania na internet.</p>
+    <a href="#ai" class="btn-cyber">Iniciar Jornada</a>
+  </div>
 </section>
 
 <section id="ai" class="section glass">
-  <h2>Inteligência Artificial</h2>
-  <canvas id="chart"></canvas>
+  <h2><i class="fa-solid fa-robot"></i> Inteligência Artificial</h2>
+  <div class="grid-content">
+    <div class="text-block">
+      <p>A Inteligência Artificial não é o futuro, é o agora. Desde algoritmos de recomendação até redes neurais profundas que criam arte e geram códigos, a IA está moldando a sociedade.</p>
+      <p><strong>Crescimento Global:</strong> O gráfico ao lado mostra a projeção do impacto da IA no processamento de dados global.</p>
+    </div>
+    <div class="chart-container">
+      <canvas id="chart"></canvas>
+    </div>
+  </div>
 </section>
 
-<section id="security" class="section">
-  <h2>Segurança Digital</h2>
-  <p>Proteja seus dados e evite golpes online.</p>
+<section id="etica" class="section">
+  <h2><i class="fa-solid fa-fingerprint"></i> Ética & Deepfakes</h2>
+  <div class="grid-cards">
+    <div class="card">
+      <i class="fa-solid fa-eye-slash icon-neon"></i>
+      <h3>Privacidade</h3>
+      <p>Quem controla seus dados? Aprenda como as grandes corporações utilizam seus rastros digitais para treinar modelos de IA.</p>
+    </div>
+    <div class="card">
+      <i class="fa-solid fa-masks-theater icon-neon"></i>
+      <h3>Deepfakes</h3>
+      <p>Vídeos e áudios hiper-realistas criados por IA podem espalhar desinformação. Saber checar fontes é a sua maior defesa.</p>
+    </div>
+  </div>
+</section>
+
+<section id="security" class="section glass">
+  <h2><i class="fa-solid fa-user-lock"></i> Segurança Digital</h2>
+  <p class="subtitle">A internet é um terreno gigante. Proteger sua identidade é fundamental.</p>
+  <ul class="tech-list">
+    <li><i class="fa-solid fa-check text-cyan"></i> <strong>Autenticação de Dois Fatores (2FA):</strong> Ative em absolutamente tudo.</li>
+    <li><i class="fa-solid fa-check text-cyan"></i> <strong>Engenharia Social:</strong> Desconfie de links urgentes recebidos por SMS ou redes sociais.</li>
+    <li><i class="fa-solid fa-check text-cyan"></i> <strong>Senhas Fortes:</strong> Use gerenciadores de senhas em vez de repetir a mesma frase em vários sites.</li>
+  </ul>
+</section>
+
+<section id="carreiras" class="section">
+  <h2><i class="fa-solid fa-laptop-code"></i> Carreiras do Futuro</h2>
+  <p>O mercado mudou. Conheça as profissões que estão surgindo com a revolução tecnológica:</p>
+  <div class="grid-cards">
+    <div class="card-mini"><strong>Engenheiro de Prompt:</strong> Especialista em conversar e extrair o melhor de IAs generativas.</div>
+    <div class="card-mini"><strong>Analista de Cibersegurança:</strong> O guardião que protege redes contra ataques hackers globais.</div>
+    <div class="card-mini"><strong>Cientista de Dados:</strong> O profissional que transforma montanhas de dados em estratégias reais.</div>
+  </div>
 </section>
 
 <section id="quiz" class="section glass">
-  <h2>Quiz Interativo</h2>
-
-  <p id="question"></p>
+  <h2><i class="fa-solid fa-brain"></i> Cyber Quiz</h2>
+  <p id="question">Carregando pergunta...</p>
   <div id="answers"></div>
-
-  <button id="next">Próxima</button>
-
-  <p>Pontos: <span id="score">0</span></p>
+  <button id="next" class="btn-cyber">Próxima</button>
+  <div class="score-board">
+    <p>Score: <span id="score">0</span> XP</p>
+  </div>
 </section>
 
-<section id="chat" class="section">
-  <h2>Assistente IA</h2>
-
-  <div id="chatBox"></div>
-
-  <input id="input" placeholder="Digite sua pergunta...">
-  <button onclick="send()">Enviar</button>
+<section id="chat" class="section glass">
+  <h2><i class="fa-solid fa-terminal"></i> Terminal Assistente IA</h2>
+  <div id="chatBox">
+    <p class="bot-msg"><strong>[SISTEMA]:</strong> Conexão estabelecida. Como posso te ajudar hoje, usuário?</p>
+  </div>
+  <div class="chat-input-area">
+    <input id="input" placeholder="Digite um comando ou pergunta...">
+    <button onclick="send()" class="btn-send"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
 </section>
 
-<button id="top">⬆</button>
+<button id="top"><i class="fa-solid fa-arrow-up"></i></button>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
 <script src="script.js"></script>
-
 </body>
 </html>
